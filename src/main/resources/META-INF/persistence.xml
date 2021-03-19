@@ -7,6 +7,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.account.model.Account</class>
         <class>com.account.model.User</class>
+        <class>com.account.model.Movimentation</class>
         <properties>
             <property name="javax.persistence.jdbc.driver"   value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url"      value="jdbc:mysql://localhost/bd_account?userTimezone=true&amp;serverTimezone=UTC" />

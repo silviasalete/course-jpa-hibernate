@@ -4,32 +4,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Entity
-public class User {
+public class Category {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
-	
-	@JoinColumn(unique = true)
-	@OneToOne
-	private Account account;
-	
-	@Deprecated
-	public User() {
+    private String name;
+    
+    @Deprecated
+	public Category() {
 		super();
-	}
-	
-	public User(String name, Account account) {
-		super();
-		this.name = name;
-		this.account = account;
 	}
 
+	public Category(String name) {
+		this.name = name;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -42,10 +34,6 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Account getAccount() {
-		return account;
-	}
-	public void setAccount(Account account) {
-		this.account = account;
-	}   
+    
+    
 }
