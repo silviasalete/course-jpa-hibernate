@@ -1,9 +1,13 @@
 package com.account.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Account {
@@ -15,6 +19,9 @@ public class Account {
 	private Integer agency;
 	private String holder;
 	private Double balance;
+	
+	@OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
+	private List<Movimentation> movimentations;
 
 	public Long getId() {
 		return id;
@@ -54,5 +61,10 @@ public class Account {
 
 	public void setBalance(Double balance) {
 		this.balance = balance;
+	}
+
+	public List<Movimentation> getMovimentations() {
+		return this.movimentations;
+		
 	}
 }

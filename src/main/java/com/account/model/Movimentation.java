@@ -12,8 +12,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
 import com.account.utils.MovimentationType;
+
+@NamedQuery(name="averageWithDate",
+query="SELECT new com.account.model.AverageWithDate(avg(m.value), day(m.date), month(m.date)) from Movimentation m GROUP BY day(m.date), month(m.date), year(m.date)")
+// aviso errado do eclipse
 
 @Entity
 public class Movimentation {
@@ -88,5 +93,12 @@ public class Movimentation {
 
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;
+	}
+
+	@Override
+	public String toString() {
+		return "Movimentation [id=" + id + ", movimentationType=" + movimentationType + ", date=" + date
+				+ ", description=" + description + ", value=" + value + ", account=" + account + ", categories="
+				+ categories + "]\n";
 	}
 }
